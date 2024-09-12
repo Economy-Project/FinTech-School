@@ -10,7 +10,7 @@ def cleanup():
     session = scoped_session(Session)
 
     try:
-        one_hour_ago = int(datetime.now().timestamp()) - 3600
+        one_hour_ago = int(datetime.utcnow().timestamp()) - 3600
 
         session.query(Passphrase).filter(
             Passphrase.user.in_(session.query(User.id).filter(
@@ -32,17 +32,21 @@ def cleanup():
         session.remove()
 
 def send_articles(bot):
-    print('Sending articles...')
     session = scoped_session(Session)
+    current_time = int(datetime.utcnow().timestamp())
+    print(f"Sending articles, time = {current_time}")
 
     try:
-        articles = session.query(Article).filter(Article.publishAt <= int(datetime.now().timestamp())).all()
+        articles = session.query(Article).filter(Article.publishAt <= current_time).all()
         users = session.query(User).filter(User.telegramId != -1).all()
 
         for article in articles:
             for user in users:
-                bot.send_message(user.telegramId, article.article)
-                time.sleep(0.25) # костыль :(
+                try:
+                    bot.send_message(user.telegramId, article.article)
+                    time.sleep(0.25) # костыль :(
+                except Exception as e:
+                    print(f"Could not send article for {user.telegramId}: {str(e)}")
         
         for article in articles:
             session.delete(article)
