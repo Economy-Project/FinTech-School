@@ -4,35 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>Document</title>
     {% block styles %} {{ bootstrap.load_css() }} {% endblock %}
   </head>
   <body>
-    <header
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
-    >
-      <div class="col-md-3 mb-2 mb-md-0">
-        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-          <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
-      </div>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="{{ url_for('home') }}" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">Features</a></li>
-        <li><a href="#" class="nav-link px-2">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2">About</a></li>
+    <header class="d-flex justify-content-between align-items-center">
+      <h1 class="logo-title">FINTECH<br/>SCHOOL</h1>
+      <ul class="nav-bar d-flex justify-content-between list-unstyled">
+        <li><a href="{{ url_for('home') }}" class="nav-element">HOME</a></li>
+        <li><a href="#" class="nav-element">ABOUT COURSE</a></li>
+        <li><a href="#" class="nav-element">LOG IN</a></li>
+        <li><a href="#" class="nav-element">SIGN UP</a></li>
         {% if current_user.isAdmin %}
           <li><a href="{{ url_for('admin') }}" class="nav-link px-2">Admin</a></li>
         {% endif %}
       </ul>
-
-      <div class="col-md-3 text-end">
-        <a href="{{ url_for('logout') }}" class="btn btn-outline-primary me-2">Log out</a>
-        <a href="{{ url_for('login') }}" class="btn btn-outline-primary me-2">Login</a>
-        <a href="{{ url_for('register') }}" class="btn btn-primary">Sign-up</a>
-      </div>
     </header>

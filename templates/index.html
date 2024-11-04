@@ -1,16 +1,7 @@
 {% include "header.html" %}
 
-<h1 class="text-center">FinTech school</h1>
-
 {% if current_user.id %}
-<div class="user">
-    <h1>Current User</h1>
-    <h2>id: {{current_user.id}}</h2>
-    <h2>Login: {{current_user.login}}</h2>
-    <h2>Password: {{current_user.password}}</h2>
-    <h2>isAdmin: {{current_user.isAdmin}}</h2>
-    <h2>registeredAt: {{current_user.registeredAt}}</h2>
-</div>
+<div></div>
 {% else %}
 <h1 style="text-align: center;">You need to log in</h1>
 {% endif %}
