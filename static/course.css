@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+  
+}
+
+/* Laptops (769px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Desktops (1025px and up) */
+@media (min-width: 1025px) {
+
+}

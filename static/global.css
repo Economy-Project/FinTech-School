@@ -1,0 +1,25 @@
+:root {
+  --bg-black: #090711;
+  --font-white: #fff;
+  font-family: 'Krona One', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.center-content {
+  padding: 0 6% 0 6%;
+}
+
+.logo-title {
+  font-family: "Krona One", sans-serif;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .logo-title {
+    font-size: 0.8rem;
+  }
+}
