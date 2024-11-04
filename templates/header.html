@@ -33,10 +33,14 @@
         <ul class="nav-bar d-flex justify-content-between list-unstyled">
           <li><a href="{{ url_for('home') }}" class="nav-element">HOME</a></li>
           <li><a href="{{ url_for('course') }}" class="nav-element">ABOUT COURSE</a></li>
-          <li><a href="{{ url_for('login') }}" class="nav-element">LOG IN</a></li>
-          <li><a href="{{ url_for('register') }}" class="nav-element">SIGN UP</a></li>
           {% if current_user.isAdmin %}
-          <li><a href="{{ url_for('admin') }}" class="nav-element">ADMIN</a></li>
+            <li><a href="{{ url_for('admin') }}" class="nav-element">ADMIN</a></li>
+          {% endif %}
+          {% if current_user.id %}
+            <li><a href="{{ url_for('logout') }}" class="nav-element">LOG OUT</a></li>
+          {% else %}
+            <li><a href="{{ url_for('login') }}" class="nav-element">LOG IN</a></li>
+            <li><a href="{{ url_for('register') }}" class="nav-element">SIGN UP</a></li>
           {% endif %}
         </ul>
       </header>
