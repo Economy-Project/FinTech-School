@@ -1,9 +1,27 @@
 {% include "header.html" %}
 
-{% if current_user.id %}
-<h1 style="text-align: center;">You logged in</h1>
-{% else %}
-<h1 style="text-align: center;">You need to log in</h1>
-{% endif %}
+<div class="main-page-container">
+  <div class="image-container">
+    <img
+      class="fintech-img"
+      src="../static/public/fintech-bg.png"
+      alt="fintech bg"
+    />
+    <h1 class="img-title">СТАНЬ ЕКСПЕРТОМ <br />У СФЕРІ FINTECH</h1>
+    <div class="itstep-link">
+      <a class="" href="#">в <span>IT STEP</span> Університеті</a>
+      <img src="../static/public/arrow.png" alt="arrow" />
+    </div>
+  </div>
+  
+  <div class="text-container">
+    <div class="text-box">
+        Здобувайте професійні знання та практичні навички щодо використання технологій у бізнесі фінансових компаній
+    </div>
+    <div class="text-box">
+        Дізнайтеся, як інвестують, переміщують, платять і захищають свої гроші в епоху діджиталізації
+    </div>
+</div>
+</div>
 
 {% include "footer.html" %}
