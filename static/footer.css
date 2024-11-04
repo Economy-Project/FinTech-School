@@ -3,6 +3,7 @@
   color: white;
   text-align: center;
   padding: 0 6% 0 6%;
+  height: 250px;
 }
 
 .footer-content {
@@ -12,9 +13,10 @@
   padding: 20px 0 20px 0 ;
 }
 
-.right-section p {
+.right-section .info {
   font-size: 15px;
   text-align: right;
+  margin-bottom: 20px;
 }
 
 .right-section p.address {
@@ -49,10 +51,17 @@
   .footer-bottom p {
     font-size: 12px;
   }
+
+  .footer {
+    height: 180px;
+  }
 }
 
 /* Laptops (769px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
+  .footer {
+    height: 200px;
+  }
 
 }
 
