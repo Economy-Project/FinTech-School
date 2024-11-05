@@ -1,25 +1,233 @@
+:root {
+    --yellow-orange-text: rgba(254, 190, 40, 1);
+    --white-text: rgba(255, 255, 255, 1);
+    --link-bg: rgba(255, 237, 99, 1);
+    --link-text: rgba(0, 0, 0, 1);
+}
+
+.center-content-course {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.left-text {
+    text-align: left;
+}
 
 
+.course-structure {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
 
+}
 
+.content-container {
+    width: 80%;
+    margin: 0 auto;
+}
 
+.head-where {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--yellow-orange-text);
+}
 
+.head-when {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0;
+    width: 100%;
+    text-align: center;
+    color: var(--white-text);
+}
 
+.head-sub-data-span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0;
+    width: 100%;
+    color: var(--yellow-orange-text);
+}
 
+.head-sub-data-p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0;
+    width: 100%;
+    color: var(--white-text);
+}
 
+.head-title {
+    font-family: "Krona One", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--white-text);
+}
+
+.head-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    color: var(--white-text);
+}
+
+.head-container {
+    margin: 20px 0;
+}
+
+.fintech-bg-gradient {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: 0;
+    height: 821px;
+    background-image: linear-gradient(180deg,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 1) 100%), url("../static/public/fintech-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.course-container {
+    display: grid;
+    margin: 50px 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+li::marker {
+    font-size: 15px;
+}
+
+.course-cell {
+    align-items: start;
+    margin: 20px 20px;
+    align-self: start;
+}
+
+.cource-list {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.cource-theme {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    color: var(--yellow-orange-text);
+}
+
+.link-btn {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr;
+    justify-content: center;
+    min-width: 550px;
+    background-color: var(--link-bg);
+    border-radius: 60px;
+    margin: 10px 20px;
+    width: 65%;
+    height: auto;
+    align-content: center;
+}
+
+.link-btn-container a {
+    text-decoration: none;
+}
+
+.link-btn p {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    margin: 0 10px;
+    color: var(--link-text);
+
+    justify-self: center;
+}
+
+.link-btn img {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 10px;
+    width: 60px;
+    height: 60px;
+    justify-self: self-end;
+    margin: 0 10px;
+}
+
+.link-btn-highlight {
+    font-family: "Korna One", sans-serif;
+    font-weight: 700;
+}
+
+.link-btn-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
 
 
 /* Mobile devices (up to 768px) */
 @media (max-width: 768px) {
-  
+    .content-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .course-container {
+        display: grid;
+        margin: 50px 0;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
 }
 
 /* Laptops (769px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
+    .content-container {
+        width: 100%;
+        margin: 0 auto;
+    }
 
+    .course-container {
+        display: grid;
+        margin: 50px 0;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
 }
 
 /* Desktops (1025px and up) */
-@media (min-width: 1025px) {
-
-}
+@media (min-width: 1025px) {}

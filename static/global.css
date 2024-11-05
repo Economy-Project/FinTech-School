@@ -15,6 +15,7 @@
 }
 
 .center-content {
+  width: 100%;
   padding: 0 6% 0 6%;
 }
 
@@ -26,6 +27,9 @@
 @media (max-width: 768px) {
   .logo-title {
     font-size: 0.8rem;
+  }
+  .center-content {
+    width: 100%;
   }
 }
 
