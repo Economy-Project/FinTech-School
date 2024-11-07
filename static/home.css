@@ -40,16 +40,16 @@
     justify-content: space-evenly;
     align-items: center;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); 
+    text-decoration: none;
 }
 
-.itstep-link a {
-    text-decoration: none;
+.itstep-link div {
     color: var( --font-black);
     font-size: 1.4vw;
     margin-left: 50px;
 }
 
-.itstep-link a span{
+.itstep-link div span{
     font-family: 'Krona One', sans-serif;
 }
 
@@ -161,7 +161,7 @@
         height: 36px;
     }
 
-    .itstep-link a {
+    .itstep-link div {
         font-size: 1.9vw;
         margin-left: 15px;
     }
@@ -188,6 +188,8 @@
     }
     
     .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 20px; 
     }
 
@@ -230,7 +232,7 @@
         height: 45px;
     }
 
-    .itstep-link a {
+    .itstep-link div {
         font-size: 1.9vw;
         margin-left: 20px;
     }
@@ -280,7 +282,7 @@
         height: 58px;
     }
 
-    .itstep-link a {
+    .itstep-link div {
         font-size: 1.2vw;
         margin-left: 38px;
     }

@@ -121,7 +121,7 @@
 }
 
 .name-surname-block {
-    width: 48%;
+    width: 46%;
 }
 
 .register-bg-image {
@@ -138,6 +138,12 @@
 .register-input {
     border-radius: 40px;
     border-color: var(--font-black);
-    height: 20px;
-    margin-bottom: 15px;
+    height: 40px;
+    margin-bottom: 25px;
+}
+
+.label-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2vw;
+    font-weight: 700;
 }

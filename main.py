@@ -49,6 +49,11 @@ def course():
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        if request.form.get('password') != request.form.get('second-password'):
+            flash("Your passwords doesn't match")
+
+            return redirect(url_for('register'))
+        
         user = db.session.execute(db.select(User).where(User.login == request.form.get('login'))).scalar()
         if user:
             flash("This email already exist, please try another.")
