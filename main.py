@@ -38,8 +38,6 @@ def admin_only(f):
             return abort(403)
     return decorated_function
 
-
-
 @app.route('/')
 def home():
     return render_template('home.html', current_user=current_user)
@@ -63,9 +61,12 @@ def register():
             salt_length=8
             )
         
-        new_user = User(
+        new_user = User(  
+            name=request.form.get('name'),
+            surname=request.form.get('surname'),
             login=request.form.get('login'),
             password=hash_and_salted_password,
+            email=request.form.get('email'),
             telegramId=-1,
             registeredAt=datetime.utcnow().timestamp()
         )

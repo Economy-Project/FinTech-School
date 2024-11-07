@@ -1,44 +1,56 @@
 {% include "header.html" %}
+<style>
+  .nav-element {
+      color: var(--white-text);
+  }
 
-  <div class="container">
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-    <p>{{ message }}</p>
-    {% endfor %} {% endif %} {% endwith %}
-    <form
-      class="p-4 p-md-5 border rounded-3 bg-body-tertiary"
-      action="{{ url_for('register') }}"
-      method="post"
-    >
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="login"
-          name="login"
-          placeholder="login"
-          required="required"
-        />
-        <label for="floatingInput">Login</label>
+  .logo-title {
+      color: var(--font-yellow);
+  }
+</style>
+  
+    <div class="auth-container">
+      <div class="auth-title-container">
+        <h1>СТАНЬ ЧАСТИНОЮ ШКОЛИ FINTECH</h1>
       </div>
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required="required"
-        />
-        <label for="floatingPassword">Password</label>
+
+      <div class="auth-card-container">
+        <form class="card-content-container" action="{{ url_for('register') }}" method="post">
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+          <p class="text-center">{{ message }}</p>
+          {% endfor %} {% endif %} {% endwith %}
+          <div class="name-surname-container">
+            <div class="name-surname-block">
+              <h1>Ім'я</h2>
+              <input class="form-control register-input" type="name" name="name" required="required">
+            </div>
+            <div class="name-surname-block">
+              <h2>Прізвище</h2>
+              <input class="form-control register-input" type="surname" name="surname" required="required">
+            </div>
+          </div>
+
+          <h2>Логін</h2>
+          <input class="form-control register-input" type="login" name="login" required="required">
+          <h2>Пароль</h2>
+          <input class="form-control register-input" type="password" name="password" required="required">
+          <h2>Повторіть пароль</h2>
+          <input class="form-control register-input" type="password" name="password" required="required">
+          <h2>Електронна пошта</h2>
+          <input class="form-control register-input" type="email" name="email" required="required">
+        <div class="auth-options">
+          <label class="d-flex align-items-center"><input type="checkbox" value="remember-me" /> Remember Me</label>
+          <a class="account-options" href="">FORGOT PASSWORD?</a>
+        </div>
+        <button class="auth-button" type="submit">Log In</button>
+        <a class="account-options" href="{{ url_for('register') }}">Ще не маєш акаунту?</a>
+      </form>
       </div>
-      <div class="checkbox mb-3">
-        <label> <input type="checkbox" value="remember-me" /> Remember me </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-      <hr class="my-4" />
-      <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
-    </form>
+      
+    </div>
   </div>
-</div>
-{% include "footer.html" %}
+<div class="register-bg-image"></div>
+
 
 
 <!-- <div class="container">
