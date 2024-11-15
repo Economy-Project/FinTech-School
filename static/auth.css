@@ -135,7 +135,8 @@
     background-size: cover;
 }
 
-.register-input {
+.register-input {   
+    width: 100%;
     border-radius: 40px;
     border-color: var(--font-black);
     height: 40px;
@@ -147,3 +148,154 @@
     font-size: 1.2vw;
     font-weight: 700;
 }
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+    .name-surname-container {
+        display: block;
+    }
+
+    .name-surname-block {
+        width: 100%;
+    }
+
+    .auth-container {
+        width: 100%;
+        height: 85vh;
+        display: block;
+    }
+    
+    .auth-title-container {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        padding: 0 4% 0 4%;
+    }
+
+    .auth-card-container {
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 0 8% 0 8%; 
+    }
+
+    .register-input {
+        border-radius: 12px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .login-input {
+        border-radius: 12px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .auth-button {
+        border-radius: 40px;
+        height: 30px;
+        font-size: 2.2vw;
+        margin-bottom: 15px;
+    }
+
+    .auth-options {
+        margin-bottom: 15px;
+    }
+
+    .account-options {
+        font-size: 2vw;
+    }
+
+    .auth-title-container h1 {
+        font-size: 4vw;
+    }
+
+    .label-title {
+        font-size: 3vw;
+    }
+
+    .auth-options > label {
+        font-size: 2vw;
+    }
+
+    .register-bg-image {
+        height: 115%;
+    }
+    
+    .login-bg-image {
+        height: 110%;
+    }
+}
+
+/* Laptops (769px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .register-input {
+        border-radius: 40px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .register-input {
+        border-radius: 40px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+
+    .auth-button {
+        border-radius: 40px;
+        height: 40px;
+        font-size: 1.2vw;
+        margin-bottom: 15px;
+    }
+
+    .auth-options {
+        margin-bottom: 15px;
+    }
+
+    .account-options {
+        font-size: 1vw;
+    }
+
+    .auth-container {
+        height: 75vh;
+    }
+
+    .auth-title-container h1 {
+        font-size: 3.5vw;
+    }
+
+    .label-title {
+        font-size: 1.4vw;
+    }
+}
+
+/* Desktops (1025px and up) */
+@media (min-width: 1024px) and (max-width: 1550px) {
+    .register-input {
+        border-radius: 40px;
+        height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .auth-button {
+        border-radius: 40px;
+        height: 50px;
+        font-size: 1.4vw;
+        margin-bottom: 30px;
+    }
+
+    .auth-options {
+        margin-bottom: 20px;
+    }
+
+    .account-options {
+        font-size: 1.1vw;
+    }
+}  

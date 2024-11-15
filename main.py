@@ -7,6 +7,11 @@ from forms import AdminForm
 from models import db, User, Article
 import os
 from datetime import datetime
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+import dotenv
+
+dotenv.load_dotenv()
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
@@ -16,6 +21,10 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
 db.init_app(app)
 Bootstrap5(app)
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+)
 
 with app.app_context():
     db.create_all()
@@ -47,6 +56,7 @@ def course():
     return render_template('course.html', current_user=current_user)
 
 @app.route('/register', methods=["GET", "POST"])
+@limiter.limit("2 per second") 
 def register():
     if request.method == "POST":
         if request.form.get('password') != request.form.get('second-password'):
@@ -87,6 +97,7 @@ def register():
 
 
 @app.route('/login', methods=["GET", "POST"])
+@limiter.limit("2 per second") 
 def login():
     if request.method == "POST":
         password = request.form.get('password')
@@ -115,6 +126,7 @@ def logout():
 
 
 @app.route('/admin', methods=["GET", "POST"])
+@limiter.limit("2 per second") 
 @admin_only
 def admin():
     if request.method == "POST":
@@ -134,6 +146,7 @@ def admin():
     return render_template("admin.html", publish_history=publish_history, current_user=current_user)
 
 @app.route("/delete/<int:article_id>")
+@limiter.limit("2 per second") 
 # @admin_only
 def delete_article(article_id):
     article_to_delete = db.session.execute(db.select(Article).where(Article.id == article_id)).scalar()
@@ -143,4 +156,4 @@ def delete_article(article_id):
     return redirect(url_for("admin"))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True, port=5000)

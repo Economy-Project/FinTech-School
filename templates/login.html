@@ -8,8 +8,21 @@
   .logo-title {
       color: var(--font-yellow);
   }
+
+  @media (max-width: 768px) {
+  .auth-card-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 70%;
+    background-color: var(--bg-white);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 8% 0 8%; 
+    }
+  }
 </style>
-  
     <div class="auth-container">
       <div class="auth-card-container">
         <form class="card-content-container" action="{{ url_for('login') }}" method="post">
