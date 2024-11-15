@@ -1,32 +1,51 @@
 {% from "bootstrap5/form.html" import render_form %}
 {% include "header.html" %}
 
-<div class="center">
-    <form action="{{ url_for('admin') }}" method="post">
-        <h1>Admin panel</h1>
-        <textarea name="message_text" rows="10" cols="50" class="admin-text"></textarea>
-        <div style="display: flex; justify-content: end ">
-            <h3>Publish At</h3>
-            <input type="datetime-local" required="required" class="admin-date" id="timezone" name="timezone" />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-
-<hr>
-
-<div class="history-container">
-    <h1>Publish History</h1>
-    {% for item in publish_history %}
-    <div class="history-block">
-        <div>
-            <h2>Date: {{item.publishAt}}</h2>
-            <h3 class="history-text">Text: {{item.article}}</h3>
-        </div>
-        <a href="{{url_for('delete_article', article_id=item.id) }}"><img class="trash" src="../static/trash.png" alt="trash icon"></a>
+    <div class="center">
+        <form action="{{ url_for('admin') }}" method="post">
+            <h1>Admin panel</h1>
+            <textarea name="message_text" rows="10" cols="50" class="admin-text"></textarea>
+            <div style="display: flex; justify-content: end ">
+                <h3>Publish At</h3>
+                <input type="datetime-local" required="required" class="admin-date" id="timezone" name="timezone" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    {% endfor %}
-</div>
 
+    <hr>
+
+    <div class="history-container">
+        <h1>Publish History</h1>
+        {% for post in publish_history %}
+        <div class="history-block">
+            <div>
+                <h2>Date: {{post.publishAt}}</h2>
+                <h3 class="history-text">Text: {{post.article}}</h3>
+            </div>
+            <a href="{{url_for('delete_article', article_id=post.id) }}"><img class="trash" src="../static/public/trash.png" alt="trash icon"></a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="history-container">
+        <h1>Users</h1>
+        {% for user in users %}
+        <div class="history-block">
+            <div>
+                {% if user.isAdmin %}
+                <h2>Admin</h2>
+                {% else %}
+                <h2>User</h2>
+                {% endif %}
+                <h2>Name: {{user.name}}</h2>
+                <h2>Surname: {{user.surname}}</h2>
+                <h2>Login: {{user.login}}</h2>
+                <h2>Email: {{user.email}}</h2>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% include "footer.html" %}

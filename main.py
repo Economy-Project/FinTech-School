@@ -142,12 +142,13 @@ def admin():
     
     now = datetime.now().date()
     publish_history = db.session.execute(db.select(Article).where(Article.publishAt >= now)).scalars().all()
+    users = db.session.execute(db.select(User)).scalars().all()
 
-    return render_template("admin.html", publish_history=publish_history, current_user=current_user)
+    return render_template("admin.html", publish_history=publish_history, users=users ,current_user=current_user)
 
 @app.route("/delete/<int:article_id>")
 @limiter.limit("2 per second") 
-# @admin_only
+@admin_only
 def delete_article(article_id):
     article_to_delete = db.session.execute(db.select(Article).where(Article.id == article_id)).scalar()
     db.session.delete(article_to_delete)
@@ -156,4 +157,4 @@ def delete_article(article_id):
     return redirect(url_for("admin"))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    app.run(debug=True, port=5000)
