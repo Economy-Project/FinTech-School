@@ -156,20 +156,20 @@
 
     .itstep-link {
         top: 102%;
-        left: 60%;
-        width: 40%;
-        height: 36px;
+        left: 40%;
+        width: 60%;
+        height: 42px;
     }
 
     .itstep-link div {
-        font-size: 1.9vw;
+        font-size: 3vw;
         margin-left: 15px;
     }
 
     .itstep-link img {
-        width: 15px;
-        height: 15px;
-        margin-left: 15px;
+        width: 22px;
+        height: 22px;
+        margin-left: 5px;
     }
 
     .text-container {
@@ -183,7 +183,7 @@
     }
 
     .grid-section h1 {
-        font-size: 2.6vw;
+        font-size: 3.2vw;
         font-weight: 600;
     }
     
@@ -198,8 +198,8 @@
     }
 
     .grid-item {
-        padding: 20px;
-        font-size: 2.2vw;
+        padding: 15px;
+        font-size: 3.2vw;
     }
 }
 

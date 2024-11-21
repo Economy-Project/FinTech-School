@@ -17,8 +17,8 @@ ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI")
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI")
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
 db.init_app(app)
 Bootstrap5(app)
 limiter = Limiter(
@@ -157,4 +157,4 @@ def delete_article(article_id):
     return redirect(url_for("admin"))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(port=5000)
